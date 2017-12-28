@@ -1,4 +1,4 @@
-
+package gfg;
 public class LinkedList {
 	 static Node head;
 	 static class Node{
@@ -24,6 +24,7 @@ public class LinkedList {
 	        Node next_pointer = slow;
 	        
 	        int loop_dist = 1, i;
+	        //finding length of loop
 	        while (next_pointer.next != slow) {
 	        	next_pointer = next_pointer.next;
 	            loop_dist++;
@@ -54,7 +55,8 @@ public class LinkedList {
 	        }
 	    }
 	    public static void main(String[] args) {
-	        LinkedList list = new LinkedList();
+	        //Testcases
+	    	LinkedList list = new LinkedList();
 	        list.head = new Node(1);
 	        list.head.next = new Node(2);
 	        list.head.next.next = new Node(3);
@@ -63,6 +65,16 @@ public class LinkedList {
 	        list.head.next.next.next.next.next = new Node(6);
 	        list.head.next.next.next.next.next.next = new Node(7);
 	        head.next.next.next.next.next.next.next = head.next.next.next;
+	        list.detectAndRemoveLoop(head);
+	        System.out.println("Linked List Loop is removed : ");
+	        list.printList(head);
+	        System.out.println();
+	        list.head = new Node(11);
+	        list.head.next = new Node(21);
+	        list.head.next.next = new Node(13);
+	        list.head.next.next.next = new Node(40);
+	        list.head.next.next.next.next = new Node(15);
+	        head.next.next.next.next.next = head.next.next;
 	        list.detectAndRemoveLoop(head);
 	        System.out.println("Linked List Loop is removed : ");
 	        list.printList(head);
